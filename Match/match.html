@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" >
+    <title>Match</title>
+    <link rel="stylesheet" href="matchStyle.css">
+
+    <!-- Font awesome link -->
+    <script src="https://kit.fontawesome.com/c7ec15ff2e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts google links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+
+    <!-- Grape Nuts font -->
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet"> 
+
+    <!-- Lora font -->
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Match section -->
+   <section class="match-section" id="match-section">
+        <div class="header">
+            <div class="header__logo"><img src="/Fotos/Logo tenis.png" alt="Logo tenis"></div>
+            <ul class="header__list-ul">
+                <li><a href="/Profile/profile.html">Perfil</a></li>
+                <li><a href="/Login y Register/LoginRegister.html">Registro</a></li>
+                <li><a href="/Home y Ranking/home.html">Home</a></li>
+                <li><a href="/Home y Ranking/home.html#ranking-table-section">Ranking</a></li>
+                <li id="li__match-section"><a href="/Match/match.html">Match</a></li>
+            </ul>
+            <div class="header__ham">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+       <div class="match__title">
+           <h1>Match</h1>
+       </div>
+       <div class="match-form-ctn">
+            <form id="match-form" class="match-form">
+                <div class="box-match-ctn">
+                    <label for="win-player-search">Jugador Ganador</label>
+                    <div class="input-list-ctn">
+                        <input type="text" id="win-player-search" class="player-search" autocomplete="none">
+                        <ul id="win-box-list" class="box-list"></ul>
+                        <small class="win-points"></small>
+                    </div>
+                </div>
+                <div class="s3-div-line"></div>
+                <div class="box-match-ctn">
+                    <label for="lose-player-search">Jugador Perdedor</label>
+                    <div class="input-list-ctn">
+                        <input type="text" id="lose-player-search" class="player-search" autocomplete="none">
+                        <small class="lose-points"></small>
+                        <ul id="lose-box-list" class="box-list"></ul>
+                    </div>
+                </div>
+            </form>
+            <input type="submit" form="match-form" value="Guardar" class="s3-submit">
+       </div>
+       <div class="match-alert-ctn">
+        <div class="match-alert-box">
+            <h3 class="match-alert__text"></h3>
+            <div class="match-alert__buttons-ctn">
+                <button class="match-alert__button-confirm match-alert__button">Confirmari</button>
+                <button class="match-alert__button-cancel match-alert__button"></button>
+            </div>
+        </div>
+    </div>
+   </section>
+   <script src="/Match/match.js" defer type="module"></script>
+   <script src="/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+Objetivos:
+- Crear un sistema de ranking para Singles y Dobles
+- Crear un administrador que permita subir los datos de los resultados de los partidos.
+- Crear perfiles de cada jugador, con sus partidos jugados totales, ganados y perdidos.
+- Hacer una tabla general del ranking.
+- Hacer un conteo de Rachas de partidas ganadas.
+
+¿Que falta hacer?
+
+-----------Probar la pagina
+-----------Resolver el responsive de TODA LA PAGINA (register, login, home, ranking, match, perfil)
+-----------Diseño de perfil
+
+Links de información
+https://www.youtube.com/watch?v=5XW6yyOVY2U (grading system)
+https://www.youtube.com/watch?v=VnOVLBbYlU0 (ELO ranking)
+
+
+
+Hechos:
+-----------Agregar funcion al invitado
+-----------Hacer header responsive
+-----------Para acceder a la pagina, siempre redireccionar al login-register section
+-----------Hacer un carrousel en Home section
+-----------
+-----------Crear el administrador.
+-----------https://www.youtube.com/watch?v=xCasfsqbEaM
+-----------
+-----------Crear carpetas para separar cada pagina
+-----------
+-----------Poner alarma en 'eliminar jugador' en ranking section.
+-----------Hacer un alert mas diseñado.
+-----------¿Como hacer que cada usuario tenga su propio perfil?
