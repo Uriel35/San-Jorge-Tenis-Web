@@ -1,0 +1,117 @@
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "email": "admin@hotmail.com",
+    "pwd": "123456",
+    "sex": "M",
+    "roles": {
+        "Admin": 2000
+    }
+}
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "admin@hotmail.com",
+    "pwd": "123456"
+}
+
+###
+GET http://localhost:3000/api/users
+
+###
+GET http://localhost:3000/api/users/6355cbc46c70ada49110fee0
+
+###
+PATCH http://localhost:3000/api/users/635cf99022bd00142d520930
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mbyI6eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGhvdG1haWwuY29tIiwicm9sZXMiOlsyMDAwLDIwMDFdLCJfaWQiOiI2MzVjZjk5MDIyYmQwMDE0MmQ1MjA5MzAifSwiaWF0IjoxNjY3MDc0MzM5LCJleHAiOjE2NjcwNzUyMzl9.H2KfyV6QEulKIWqdBwpRRho4Czzs27pIFfAtyRCosmQ
+
+{
+    "sex": "F"
+}
+
+
+###
+DELETE http://localhost:3000/api/users/635c1525e4509fb7ee1dbf17
+
+###
+DELETE http://localhost:3000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mbyI6eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGhvdG1haWwuY29tIiwicm9sZXMiOlsyMDAwXSwiX2lkIjoiNjM3ODA2Y2U4ZTczZWRiZTA0NTU2NzQ0In0sImlhdCI6MTY3MDA2ODE2OSwiZXhwIjoxNjcwMDY5MDY5fQ._Twkl88UncBalS-VcCSkFWJB0aSu5yU4RwCUA-9A3tI
+
+###
+GET http://localhost:3000/decodeRefresh
+
+###
+GET http://localhost:3000/refresh
+
+###
+GET http://localhost:3000/api/doubles
+
+
+# Get one double partners
+###
+GET http://localhost:3000/api/doubles/638b3810aa969ec094926177
+
+###
+POST http://localhost:3000/api/doubles
+Content-Type: application/json
+
+{
+    "player1Id": "6364455857be7240235ae38d",
+    "player2Id": "636be959007275dfc122cf0e"
+}
+
+
+###
+DELETE http://localhost:3000/api/doubles
+
+###
+
+PATCH http://localhost:3000/api/upMatch
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mbyI6eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGhvdG1haWwuY29tIiwicm9sZXMiOlsyMDAwXSwiX2lkIjoiNjM4YjM3ZjRhYTk2OWVjMDk0OTI2MTcyIn0sImlhdCI6MTY3MDA4MTQxMSwiZXhwIjoxNjcwMDgyMzExfQ.iSBTwv9RJP-azM2SM8dDlBFKXWDAAR4A2ugIbZ0SAdc
+
+# {
+#     "whoServed": "whoServed",
+#     "bestOf3": "bestOfThreeRadio.checked",
+#     "score": [[6, 3], [6, 2]],
+#     "resign": "resignInput.checked",
+#     "winPlayer": {
+#         "_id": "638b3810aa969ec094926177",
+#         "matches": {
+#             "result": true,
+#             "rival": "User 2",
+#             "resign": false,
+#             "points": 20,
+#         },
+#         "streak": "winPlayer.streak",
+#         "ranking": {
+#             "ranking": 1020,
+#             "history": {
+#                 "points": 20
+#             }
+#         }
+#     },
+#     "losePlayer": {
+#         "_id": "638b381faa969ec09492617c",
+#         "matches": {
+#             "result": true,
+#             "rival": "losePlayer.name",
+#             "resign": "resignInput.checked",
+#             "points": "points[0]"
+#         },
+#         "streak": "winPlayer.streak",
+#         "ranking": {
+#             "ranking": "winPlayer.ranking.ranking + points[0]",
+#             "history": {
+#                 "points: points[0]"
+#             }
+#         }
+#     }
+# }

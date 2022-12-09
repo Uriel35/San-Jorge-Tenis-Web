@@ -1,0 +1,435 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+:root {
+  --azul: rgb(34, 113, 182);
+  --marron: #fee074;
+  --marron-oscuro: #9d7615;
+  --Open-sans: "Open Sans", sans-serif;
+  --verde-correcto: #2ecc71;
+  --rojo-error: #e74c3c;
+  --naranja: #CA581B;
+  --Lora: "Lora", serif;
+  --Grape-nuts: "Grape Nuts", cursive;
+  --azul-petroleo: #00503C;
+  --azul-oscuro: #001550;
+  --verde: #00703C;
+  --violet: #330036;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+input, button {
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/* ---------------- ---------- Home section ------------------------- */
+.home-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: url(../img/Cancha\ de\ tenis.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home__indicador-ctn {
+  width: 45%; /* Hay que acomodarlo con el responsive design*/
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--verde);
+  border-radius: 10px;
+}
+
+.home__indicador {
+  text-align: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 2s;
+}
+
+.home__indicador h2 {
+  color: #fff;
+  font-size: 100%;
+}
+
+.home__indicador:hover {
+  transform: scale(1.2);
+}
+
+/* Reponsive de Home  */
+@media (max-width: 600px) {
+  .home__indicador-ctn {
+    /* font-size: 50%; */
+    width: 80%;
+  }
+}
+/*  -------------------------   Ranking-table-section  ------------------ */
+.ranking-table-section {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--verde);
+  position: relative;
+}
+
+.ranking-table__title, .refresh-button-ctn, .grid-ctn {
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+.ranking-table__title {
+  background-color: var(--naranja);
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  margin-top: 6rem;
+  color: #fff;
+}
+
+.ranking-table__title h1 {
+  font-family: var(--Open-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.table-radio-ctn {
+  margin-top: 0.7rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  width: 85%;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+.table-radio-ctn .radio {
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  background-color: #eee;
+  text-align: center;
+  color: #000;
+  cursor: pointer;
+}
+.table-radio-ctn .active-radio {
+  background-color: var(--azul-oscuro);
+  box-shadow: 0 0 15px 3px #111;
+  color: #eee;
+}
+
+.grid-ctn {
+  width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: -webkit-max-content 3fr -webkit-max-content -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content 3fr max-content max-content max-content;
+  background-color: #ddd;
+  color: #000;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px #000;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.grid-item {
+  text-align: center;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  background-color: var(--marron);
+}
+
+.name-item {
+  justify-content: space-between;
+}
+
+.name-item a {
+  font-weight: 800;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.name-item i {
+  color: var(--rojo-error);
+  cursor: pointer;
+  width: 1rem;
+}
+
+.wins-loses-item {
+  justify-content: space-around;
+}
+
+.wins-loses-item h3 {
+  margin-right: 0.3rem;
+}
+
+.streak-count {
+  display: flex;
+}
+
+.streak-count i {
+  color: var(--naranja);
+}
+
+.ranking-item {
+  display: flex;
+}
+
+.grid-item h2, .grid-item h3 {
+  font-family: var(--Open-sans);
+  font-size: 100%;
+  font-weight: 400;
+}
+
+.name-item h3 {
+  font-weight: 700;
+}
+
+.grid-reference {
+  background-color: var(--marron-oscuro);
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.grid-reference .sort-buttons {
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 5px;
+  transition: all 1s;
+}
+.grid-reference .sort-buttons:hover {
+  background-color: #222;
+}
+
+#open-ranking-chart {
+  padding: 0.4rem 0.8rem;
+  color: #eee;
+  background-color: var(--azul-oscuro);
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px #000;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ranking-chart-ctn {
+  display: none;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.ranking-chart-ctn .ranking-chart-box {
+  padding: 1rem;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 15px;
+  width: 85%;
+  height: 70%;
+}
+.ranking-chart-ctn .ranking-chart-box h2 {
+  font-size: 2rem;
+}
+.ranking-chart-ctn .category-form-ctn {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.ranking-chart-ctn .category-form-ctn label {
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.ranking-chart-ctn .category-form-ctn input {
+  background-color: #333;
+  font-size: 0.8rem;
+  color: #eee;
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+}
+.ranking-chart-ctn button {
+  padding: 0.5rem 1rem;
+  background-color: var(--verde);
+  color: #eee;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.ranking-chart-ctn .chart-ctn svg .axis-labels {
+  fill: var(--verde);
+  font-weight: 600;
+}
+
+.ranking-alert-ctn {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ranking-alert-box {
+  position: absolute;
+  max-width: 80%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 2rem 1rem;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px #000;
+  -webkit-animation: fade-in 1s;
+          animation: fade-in 1s;
+}
+
+.ranking-alert__text {
+  text-align: center;
+  width: 75%;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-family: var(--Open-sans);
+}
+
+.ranking-alert__buttons-ctn {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ranking-alert__button {
+  padding: 0.5rem;
+  background-color: var(--verde);
+  border-radius: 5px;
+  font-family: var(--Open-sans);
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Responsive design del Ranking section */
+@media (max-width: 600px) {
+  .category-form-ctn {
+    display: grid !important;
+    grid-template-columns: repeat(2, -webkit-max-content);
+    grid-template-columns: repeat(2, max-content);
+    font-size: 75%;
+  }
+  .ranking-table-section {
+    font-size: 80%;
+  }
+  .grid-ctn {
+    max-width: 97%;
+  }
+}
+.active-flex {
+  display: flex;
+}
+
+.active {
+  display: block;
+}
+
+.scale {
+  font-size: 1.2rem;
+}
+
+/* Animation  */
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=homeRankingStyle.css.map */

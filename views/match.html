@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" >
+    <title>Match</title>
+
+    <!-- Font awesome link -->
+    <script src="https://kit.fontawesome.com/c7ec15ff2e.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/d622075261.js" crossorigin="anonymous"></script> -->
+
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script> -->
+
+    
+    
+    <!-- Fonts google links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Tenis ball google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Open sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+
+    <!-- Grape Nuts font -->
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet"> 
+    
+    <!-- Lora font -->
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/matchStyle.css">
+    <link rel="stylesheet" href="/css/headerStyle.css">
+    <link rel="stylesheet" href="/css/loading.css">
+</head>
+<body>
+    <!-- Match section -->
+   <section class="match-section" id="match-section">
+        <div class="header">
+            <ul class="header__list-ul">
+                <li><a href="#" id="profile-button">Perfil</a></li>
+                <li><a href="http://localhost:3000/home">Home</a></li>
+                <li><a href="http://localhost:3000/home#ranking-table-section">Ranking</a></li>
+                <li id="li__match-section" class="li__match-section"><a href="http://localhost:3000/match">Match</a></li>
+                <li id="li__logout"><a href="#">Cerrar sesión</a></li>
+            </ul>
+            <div class="header__ham">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="match-options-ctn">
+             <button id="create-match-btn" class="create-btns" tabindex="1">Agregar partido</button>
+             <button id="create-doubles-btn" class="create-btns" tabindex="5">Crear pareja de dobles</button>
+        </div>
+        <div class="category-options-ctn" id="category-options-ctn">
+            <label for="category-options-input">Categoría</label>
+            <input type="text" id="category-options-inputs" list="" tabindex="10">
+            <datalist id="match-categories">
+                <option value="Singles masculino" id="single"></option>
+                <option value="Singles femenino" id="single"></option>
+                <option value="Dobles masculino" id="double"></option>
+                <option value="Dobles femenino" id="double"></option>
+            </datalist>
+            <datalist id="create-double">
+                <option value="Masculino"></option>
+                <option value="Femenino"></option>
+                <option value="Singles masculino"></option>
+            </datalist>
+            <button id="submit-category" tabindex="15">Continuar</button>
+        </div>
+       <div class="match-form-ctn" id="match-form-ctn">
+            <form id="match-form" class="match-form">
+                <div class="box-match-ctn">
+                    <label for="win-player-search">Jugador Ganador</label>
+                    <div class="input-list-ctn">
+                        <input type="text" id="win-player-search" class="player-search" autocomplete="off" tabindex="20">
+                        <ul id="win-box-list" class="box-list"></ul>
+                        <small class="win-points"></small>
+                    </div>
+                </div>
+                <div class="s3-div-line"></div>
+                <div class="box-match-ctn">
+                    <label for="lose-player-search">Jugador Perdedor</label>
+                    <div class="input-list-ctn">
+                        <input type="text" id="lose-player-search" class="player-search" autocomplete="off" tabindex="40">
+                        <small class="lose-points"></small>
+                        <ul id="lose-box-list" class="box-list"></ul>
+                    </div>
+                </div>
+            </form>
+            <div class="match-buttons-ctn">
+                <button id="score-button" class="match-buttons" tabindex="50">Score</button>
+                <input type="submit" form="match-form" value="Guardar" class="match-buttons" tabindex="400">
+            </div>
+        </div>
+        <div class="partner-form-ctn" id="partner-form-ctn">
+            <div class="partner-form">
+                <div id="partner-one-ctn" class="partner-ctn">
+                    <div class="partner-input-ctn">
+                        <label for="partner-one-input">Compañero 1</label>
+                        <small id="partner-one-small"></small>
+                        <input type="text" id="partner-one-input" class="partner-inputs" list="partner-one-list" tabindex="20">
+                        <ul id="partner-one-ul"></ul>
+                        <datalist class="partner-lists" id="partner-one-list">
+                        </datalist>
+    
+                    </div>
+                </div>
+                <div class="partner-vertical-line"></div>
+                <div id="parter-two-ctn" class="partner-ctn">
+                    <div class="partner-input-ctn">
+                        <label for="partner-two-input">Compañero 2</label>
+                        <small id="partner-two-small"></small>
+                        <input type="text" id="partner-two-input" class="partner-inputs" list="partner-two-list" tabindex="30">
+                        <ul id="partner-two-ul"></ul>
+                        <datalist class="partner-lists" id="partner-two-list">
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+            <button id="submit-partner" class="submit-partner" tabindex="40">Guardar</button>
+        </div>
+        <div class="match-alert-ctn">
+            <div class="match-alert-box">
+                <h2 class="alert-title" id="alert-title"></h2>
+                <p class="match-alert__text"></h3>
+                <div class="match-alert__buttons-ctn">
+                    <button class="match-alert__button-confirm match-alert__button">Confirmar</button>
+                    <button class="match-alert__button-cancel match-alert__button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div class="score-modal-ctn" id="score-modal-ctn">
+            <div class="score-box" id="score-box">
+                <div class="score-title"><h2>Score</h2></div>
+                <div class="best-of-ctn">
+                    <div class="best-of-radio-ctn">
+                        <label for="best-of-3">Mejor de 3 sets</label>
+                        <input type="radio" value="3" name="best-of" checked="true" id="best-of-3" tabindex="90">
+                    </div>
+                    <div class="best-of-radio-ctn">
+                        <label for="best-of-5">Mejor de 5 sets</label>
+                        <input type="radio" value="5" name="best-of" id="best-of-5" tabindex="92">
+                    </div>
+                </div>
+                <div class="score-ctn">
+                    <div class="score-box-ctn">
+                        <div class="serve-radio">
+                            <input type="radio" name="serve" class="serve-radio-inputs" value="win" id="win-serve" checked="true" tabindex="94">
+                            <label for="win-serve" class="serve-label">Ganador</label>
+                        </div>
+                        <div class="input-ctn">
+                            <label for="">1er Set</label>
+                            <input value="0" tabindex="100" type="number" min="0" max="7" id="win-first-set" class="set-score-input bo3-input">
+                        </div>
+                        <div class="input-ctn">
+                            <label for="">2do Set</label>
+                            <input value="0" tabindex="130" type="number" min="0" max="7" id="win-second-set" class="set-score-input bo3-input">
+                        </div>
+                        <div class="input-ctn">
+                            <label for="">3er Set</label>
+                            <input value="0" tabindex="150" type="number" min="0" max="7" id="win-third-set" class="set-score-input bo3-input">
+                        </div>
+                        <div class="input-ctn bo5-ctn unactive">
+                            <label for="">4to Set</label>
+                            <input value="0" tabindex="170" type="number" min="0" max="7" id="win-four-set" class="set-score-input bo5-input">
+                            <!-- <div class="bo5-not-allow"></div> -->
+                        </div>
+                        <div class="input-ctn bo5-ctn unactive">
+                            <label for="">5to Set</label>
+                            <input value="0" tabindex="190" type="number" min="0" max="7" id="win-five-set" class="set-score-input bo5-input">
+                            <!-- <div class="bo5-not-allow"></div> -->
+                        </div>
+                    </div>
+                    <div class="score-divisor"></div>
+                    <div class="score-box-ctn">
+                        <div class="serve-radio">
+                            <input type="radio" name="serve" class="serve-radio-inputs" value="loser" id="loser-serve" tabindex="96">
+                            <label for="loser-serve" class="serve-label" alt="Saque">Perdedor</label>
+                        </div>
+                        <div class="input-ctn">
+                            <input value="0" tabindex="120" type="number" min="0" max="7" id="lose-first-set" class="set-score-input bo3-input">
+                            <label for="">1er Set</label>
+                        </div>
+                        <div class="input-ctn">
+                            <input value="0" tabindex="140" type="number" min="0" max="7" id="lose-second-set" class="set-score-input bo3-input">
+                            <label for="">2do Set</label>
+                        </div>
+                        <div class="input-ctn">
+                            <input value="0" tabindex="160" type="number" min="0" max="7" id="lose-third-set" class="set-score-input bo3-input">
+                            <label for="">3er Set</label>
+                        </div>
+                        <div class="input-ctn bo5-ctn unactive">
+                            <input value="0" tabindex="180" type="number" min="0" max="7" id="lose-four-set" class="set-score-input bo5-input">
+                            <label for="">4to Set</label>
+                            <!-- <div class="bo5-not-allow"></div> -->
+                        </div>
+                        <div class="input-ctn bo5-ctn unactive">
+                            <input value="0" tabindex="200" type="number" min="0" max="7" id="lose-five-set" class="set-score-input bo5-input">
+                            <label for="">5to Set</label>
+                            <!-- <div class="bo5-not-allow"></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="resign-checkbox-ctn">
+                    <label for="resign-input">Abandono</label>
+                    <input type="checkbox" name="" id="resign-input" tabindex="210">
+                </div>
+                <div class="score-save-buttons">
+                    <button id="close-score-button" tabindex="220">Cerrar</button>
+                </div>
+            </div>
+        </div>
+        <div class="loading-modal">
+             <div class="loading-box">
+                 <div class="ball-spinning"></div>
+                 <h2>Cargando...</h2>
+             </div>
+         </div>
+   </section>
+   <script src="/js/match.js" defer type="module"></script>
+   <script src="/js/header.js"></script>
+</body>
+</html>

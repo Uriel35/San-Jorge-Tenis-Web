@@ -1,16 +1,69 @@
+Consideraciones
+----------- Subir solo 1 match por partido en un jugador
+----------- Breaks son solo de DIFERENCIA, NO son los reales.
+----------- NO cambiar el ranking tanto, o al menos NO hacerlo el mismo dia que se actualiza un match, ya que nos altera el gráfico.
 
-Objetivos:
-- Crear un sistema de ranking para Singles y Dobles
-- Crear un administrador que permita subir los datos de los resultados de los partidos.
-- Crear perfiles de cada jugador, con sus partidos jugados totales, ganados y perdidos.
-- Hacer una tabla general del ranking.
-- Hacer un conteo de Rachas de partidas ganadas.
+To do's...
+---- Front end
+----------- Probar la pagina.
+----------- Resolver el responsive de TODA LA PAGINA (register, login, home, ranking, match, perfil)
+----------- Manejar todos los request errors (agregar modals).
+----------- El grafico de perfil NO saca el tooltip cuando NO esta activo (en el movile responsive).
+----------- Agregar ultima actividad de cada jugador
+----------- Hacer un grafico del ranking de cada categoria de TODOS los jugadores.
 
-¿Que falta hacer?
+---- Server
+----------- Hacer un buen Error handle de los request. (casi que está... todo con el Promise.reject(response)... faltaria hacerlo por parte del front end).
+----------- Agregar TORNEOS al DB...
+----------- Conectar al servidor de Mongo DB (no al localhost).
 
------------Probar la pagina
------------Resolver el responsive de TODA LA PAGINA (register, login, home, ranking, match, perfil)
------------Diseño de perfil
+
+Hechos:
+----------- Crear un profile para el doubles
+----------- Agregar un H2H doubles (arreglar para el dobles)
+----------- Cuadro de profile matches, ordenarlo segun la fecha.
+----------- Manejar el header para cada view, ya que si hay un elemento que no existe tira error y corta la lectura del codigo (parcialmente corregido con try/catch).
+----------- Sex radio inputs del profile sex edit NO funciona
+----------- Intentar sacar el width y el heigth del contenedor del grafico del perfil para hacer el grafico mas responsive.
+----------- Poner nombre a los ejes de los gráficos.
+----------- Hacer un cuadro de todos los Matchs en perfil
+----------- Poner animación de un loading
+----------- Diseño de perfil (hacer un menu para ver el gráfico del ranking, los torneos, y los partidos que ha jugado).
+----------- Restringir matches el mismo día.
+----------- En matches, agregar quien empezó sacando, así puedo sacar la cantidad de Breaks del juego.
+----------- Manejar los Date.
+----------- Hacer el gráfico del progreso del ranking del user en el profile.
+----------- Hacer ranking tanto para dobles y para mujeres.
+----------- Modificar el updateMatch para corroborar que sean del mismo sexo
+----------- Match: Agregar el creador de pareja de dobles, seleccionar las categorias correspondientes al hacer el match (no mezclar jugadores femeninos con masculinos, ni singles con dobles).
+----------- Hacer el request del partner
+----------- Hacer el Doubles Schema.
+----------- Como hacer editor de su propia pagina...
+----------- Restringir el match section SOLO para el admin.
+----------- Manejar el guest user... Complicado, en cada pagina siempre corre un decodeRefreshToken en el cual el Guest no va a poder pasar las pruebas... Se maneja pero con errores... no se si trae algun problema
+----------- Arreglar el header (agregar el logout, eliminar el MATCH excepto para el ADMIN).
+----------- Hacer la grilla de edición del jugador en el profile (sólo disponible para el admin y el propio usuario del profile)
+----------- Hacer el logout.
+----------- Ranking table, como mantener la posicion segun el ranking (tanto invertido como normal) ... Quizas hay que cambiar TODO a un flexbox
+----------- Como hacer el refresh Token en los errores cuando el accessToken ha expirado (como middleware en verifyJWT).
+----------- En Match, poner el score del partido jugado (casi completo)... falta terminar los request (agregar el score)
+----------- Tal vez, hay que hacer una ruta para match, porque estaria bueno validar los 2 jugadores al mismo tiempo en vez de hacer 2 promesas asincronas.
+----------- Manejar el orden inverso en la tabla ranking
+----------- Agregar propiedades al UserDB (sexo), y aclarar cuales SON OBLIGATORIAMENTE REQUERIDOS (name, email, pwd, sexo)
+----------- getAllUsers controller, como seleccionar a todos menos al admin.
+----------- En el ranking table, linkear cada jugador a su perfil
+----------- Las cookies se borran cuando hago un redirect
+----------- Agregar funcion al invitado
+----------- Hacer header responsive
+----------- Para acceder a la pagina, siempre redireccionar al login-register section
+----------- Hacer un carrousel en Home section
+----------- Crear el administrador.
+----------- https://www.youtube.com/watch?v=xCasfsqbEaM
+-----------Poner alarma en 'eliminar jugador' en ranking section.
+-----------Hacer un alert mas diseñado.
+-----------¿Como hacer que cada usuario tenga su propio perfil?
+
+
 
 Links de información
 https://www.youtube.com/watch?v=5XW6yyOVY2U (grading system)
@@ -18,17 +71,3 @@ https://www.youtube.com/watch?v=VnOVLBbYlU0 (ELO ranking)
 
 
 
-Hechos:
------------Agregar funcion al invitado
------------Hacer header responsive
------------Para acceder a la pagina, siempre redireccionar al login-register section
------------Hacer un carrousel en Home section
------------
------------Crear el administrador.
------------https://www.youtube.com/watch?v=xCasfsqbEaM
------------
------------Crear carpetas para separar cada pagina
------------
------------Poner alarma en 'eliminar jugador' en ranking section.
------------Hacer un alert mas diseñado.
------------¿Como hacer que cada usuario tenga su propio perfil?

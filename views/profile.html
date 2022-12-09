@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+
+    <!-- Luxon -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+
+    <!-- D3 link -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Style link -->
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/headerStyle.css">
+    <link rel="stylesheet" href="/css/loading.css">
+
+    <!-- Font awesome link -->
+    <script src="https://kit.fontawesome.com/c7ec15ff2e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts google links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,800&display=swap" rel="stylesheet">
+
+    <!-- Grape Nuts font -->
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet"> 
+
+    <!-- Lora font -->
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Lora:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <ul class="header__list-ul">
+            <li><a id="profile-button" href="#">Perfil</a></li>
+            <li><a href="http://localhost:3000/home">Home</a></li>
+            <li><a href="http://localhost:3000/home#ranking-table-section">Ranking</a></li>
+            <li id="li__match-section" class="li__match-section"><a href="http://localhost:3000/match">Match</a></li>
+            <li id="li__logout"><a href="#">Cerrar sesión</a></li>
+        </ul>
+        <div class="header__ham">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    <section class="profile-section">
+        <div class="profile-ctn">
+            <div class="profile__up-flex-ctn">
+                <div class="profile__photo-ctn">
+                    <img id="photo" src="/img/player logo.png" alt="">
+                </div>
+                <div class="profile__data-ctn">
+                    <div class="name-ctn">
+                        <h1>Jugador</h1>
+                    </div>
+                    <div class="results-ctn">
+                        <h3 class="games">Partidos jugados: <strong></strong></h3>
+                        <h3 class="record">Record: <strong></strong></h3>
+                        <h3 class="streak">Racha: <strong></strong></h3>
+                        <h3 class="h2h">H2H: </h3>
+                    </div>
+                    <button id="open-chart-button">Gráfico</button>
+                </div>
+                <div id="open-edit" class="edit-button-ctn">
+                    <i class="fa">&#xf044;</i>
+                </div>
+            </div>
+            <div class="down-flex-ctn">
+                <h2 class="title">Historial de partidos</h2>
+                <div class="matches-ctn" id="matches-ctn">
+                    <div class="grid-reference" id="grid-reference-date"><h3>Fecha <span>(d/m/a)</span></h3></div>
+                    <div class="grid-reference"><h3>Rival</h3></div>
+                    <div class="grid-reference"><h3>Score</h3></div>
+                    <div class="grid-reference"><h3>Breaks</h3></div>
+                    <div class="grid-reference"><h3>Puntos</h3></div>
+                </div>
+            </div>
+        </div>
+        <div class="edit-form-ctn" id="edit-form-ctn">
+            <div class="box" id="form-box">
+                <h2 class="edit__title">Editar datos</h2>
+                <form class="edit-form">
+                    <div class="edit-form__input-ctn">
+                        <label for="edit-name">Nombre y apellido</label>
+                        <input autocomplete="none" type="text" id="edit-name" value="">
+                    </div>
+                    <div class="edit-form__input-ctn">
+                        <label for="edit-age">Fecha de nacimiento</label>
+                        <input autocomplete="none" type="date" id="edit-age">
+                    </div>
+                    <div class="edit-form__input-ctn">
+                        <label for="edit-email">Email</label>
+                        <input autocomplete="none" type="email" id="edit-email">
+                    </div>
+                    <div class="edit-form__input-ctn">
+                        <h3>Sexo</h3>
+                        <div class="sex-category-inputs">
+                            <div class="sex-ctn male-ctn">
+                                <input type="radio" name="sex-radio" value="M" class="sex-category-edit" id="masculino-edit" checked>
+                                <label for="masculino-edit">Masculino</label>
+                            </div>
+                            <div class="sex-ctn female-ctn">
+                                <input type="radio" name="sex-radio" value="F" class="sex-category-edit" id="femenino-edit">
+                                <label for="femenino-edit">Femenino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-form__input-ctn">
+                        <label for="edit-pwd">Cambiar contraseña</label>
+                        <input autocomplete="none" type="password" id="edit-pwd">
+                    </div>
+                    <div class="edit-form__input-ctn">
+                        <label for="edit-ranking">Ranking</label>
+                        <input autocomplete="none" type="number" id="edit-ranking">
+                    </div>
+                    <div class="button-ctn">
+                        <button id="edit-form__cancel-button">Cancelar</button>
+                        <button class="edit-form__button" id="edit-form__button">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="edit-modal-ctn" class="edit-modal-ctn">
+            <div id="edit-modal-box" class="edit-modal-box">
+                <h2>¿Seguro quieres continuar?</h2>
+                <div class="btn-ctn">
+                    <button id="cancel-edit">Cancelar</button>
+                    <button id="confirm-edit">Confimar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="svg-ctn" id="svg-ctn">
+            <div id="svg-box" class="svg-box"></div>
+        </div>
+
+        <div class="rival-tooltip" id="rival-tooltip">
+            <h2 class="rival-tooltip-title">H2H</h2>
+            <div class="flex-ctn">
+                <div class="rival-ctn">
+                    <h3 class="tooltip-name" id="rival-name"></h3>
+                    <h4 class="tooltip-matches" id="rival-matches"></h4>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="rival-ctn">
+                    <h3 class="tooltip-name" id="current-name"></h3>
+                    <h4 class="tooltip-matches" id="current-matches"></h4>
+                </div>
+            </div>
+        </div>
+        <div class="loading-modal">
+            <div class="loading-box">
+                <div class="ball-spinning"></div>
+                <h2>Cargando...</h2>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/profile.js" defer></script>
+    <script src="/js/header.js" defer></script>
+
+</body>
+</html>
